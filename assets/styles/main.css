@@ -1,0 +1,200 @@
+:root {
+    --scale: 1;
+    --sans: -apple-system, blinkmacsystemfont, "Helvetica Neue", "Helvetica", "Segoe UI", roboto, oxygen-sans,
+    ubuntu, cantarell, "Helvetica Neue", sans-serif;
+    --bg: hsl(33.3, 25%, 95.9%);
+    --t: hsl(0, 0%, 0%);
+    --anno: hsl(33.3, 25%, 90.9%);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: var(--sans);
+    font-size: 1rem;
+
+    line-height: calc(1em * var(--scale));
+    background: var(--bg);
+
+    color: var(--t);
+}
+
+p {
+    margin: 0;
+    margin-bottom: calc(1rem * var(--scale));
+}
+
+img {
+    max-width: 100%;
+}
+
+.Container {
+    width: 90vw;
+    margin: 5vw;
+}
+
+@media screen and (min-width: 60rem) {
+    .Container {
+        width: 85vw;
+        margin: 7.5vw;
+    }
+}
+
+@media screen and (min-width: 70rem) {
+    .Container {
+        width: 80vw;
+        margin: 10vw;
+    }
+}
+
+@media screen and (min-width: 80rem) {
+    .Container {
+        width: 75vw;
+        margin: 12.5vw;
+    }
+}
+
+@media screen and (min-width: 90rem) {
+    .Container {
+        width: 70vw;
+        margin: 15vh auto;
+    }
+}
+
+.Header {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: "l n n n n n";
+    grid-gap: calc(1rem * var(--scale));
+}
+
+.Logo {
+    font-size: calc(1rem * var(--scale));
+    line-height: calc(1rem * var(--scale));
+    font-weight: 700;
+    margin: 0;
+    display: inline-block;
+    grid-area: l;
+}
+
+.Logo img {
+    width: 100%;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.Logo a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+.Logo a:hover img,
+.Logo a:focus img {
+    animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.Content {
+    width: 100%;
+}
+
+.Content-title {
+    font-size: 4rem;
+
+    line-height: 1.5em;
+    margin: 0;
+    font-weight: 400;
+    margin-bottom: calc(3rem * var(--scale));
+    margin-top: calc(1rem * var(--scale));
+    font-family: var(--sans);
+}
+
+.Content-title a {
+    color: inherit;
+    text-decoration: underline hsla(0, 0%, 0%, 0.1);
+    white-space: nowrap;
+}
+
+.Content-title a:hover,
+.Content-title a:focus {
+    background: linear-gradient(-45deg, hsla(44, 32%, 63%, 1), hsla(30, 48%, 57%, 1), hsla(337, 42%, 49%, 1), hsla(260, 42%, 49%, 1));
+    background-size: 400% 400%;
+    animation: gradient 3s linear infinite;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0.15rem;
+    padding: 0.25rem 0.5rem;
+    margin: -0.25rem -0.5rem;
+    line-height: 1.414em;
+    display: inline;
+    padding: 0.25rem 0.5rem;
+    margin: -0.25rem -0.5rem;
+    line-height: 1em;
+    border-radius: 0.25rem;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.Name {
+    white-space: nowrap;
+}
+
+.FirstName,
+.LastName {
+    position: relative;
+    text-decoration: underline dotted hsla(0, 0%, 0%, 0.3);
+    font-weight: 600;
+}
+
+.FirstName::after,
+.LastName::after {
+    position: absolute;
+    bottom: -0.65rem;
+    right: 0;
+    left: 0;
+    font-size: 0.5rem;
+    line-height: 1em;
+    font-family: var(--sans);
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: hsla(0, 0%, 0%, 0.5);
+}
+
+.FirstName::after {
+    content: "first name";
+}
+
+.LastName::after {
+    content: "last name";
+}
